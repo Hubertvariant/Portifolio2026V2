@@ -22,7 +22,7 @@ async function startServer() {
         "content_bg": "#ffffff", 
         "content_text": "#f7df1e", 
         "lang": "javascript",
-        "pasta": "javascript", 
+        "pasta": "JS", 
         "desc": "✨ Interatividade e Front-end moderno"
       },
       "Python": {
@@ -33,7 +33,7 @@ async function startServer() {
         "content_bg": "#1e1e26", 
         "content_text": "#ffffff", 
         "lang": "python", 
-        "pasta": "python", 
+        "pasta": "PY", 
         "desc": "🐍 Automação e Inteligência de Dados"
       },
       "Games": {
@@ -44,7 +44,7 @@ async function startServer() {
         "content_bg": "#0a0a0a", 
         "content_text": "#00ffcc", 
         "lang": "python", 
-        "pasta": "games", 
+        "pasta": "GAMES", 
         "desc": "🎮 Experiências Imersivas e Jogos"
       },
       "Ciência de Dados": {
@@ -55,7 +55,7 @@ async function startServer() {
         "content_bg": "#090514", 
         "content_text": "#ec4899", 
         "lang": "markdown",
-        "pasta": "ciencia_de_dados", 
+        "pasta": "QRcode", 
         "desc": "🔬 Experimentos Científicos de Dados e Análise Preditiva"
       },
       "Engenharia de Prompt": {
@@ -66,7 +66,7 @@ async function startServer() {
         "content_bg": "#041416", 
         "content_text": "#2dd4bf", 
         "lang": "markdown",
-        "pasta": "engenharia_de_prompt", 
+        "pasta": "AP", 
         "desc": "🧠 Engenharia Avançada de Prompts e Orquestração de IA"
       }
     };
