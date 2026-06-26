@@ -22,7 +22,7 @@ async function startServer() {
         "content_bg": "#ffffff", 
         "content_text": "#f7df1e", 
         "lang": "javascript",
-        "pasta": "JS", 
+        "pasta": "javascript", 
         "desc": "✨ Interatividade e Front-end moderno"
       },
       "Python": {
@@ -33,7 +33,7 @@ async function startServer() {
         "content_bg": "#1e1e26", 
         "content_text": "#ffffff", 
         "lang": "python", 
-        "pasta": "PY", 
+        "pasta": "python", 
         "desc": "🐍 Automação e Inteligência de Dados"
       },
       "Games": {
@@ -44,30 +44,30 @@ async function startServer() {
         "content_bg": "#0a0a0a", 
         "content_text": "#00ffcc", 
         "lang": "python", 
-        "pasta": "GAMES", 
+        "pasta": "games", 
         "desc": "🎮 Experiências Imersivas e Jogos"
       },
-      "Mobile": {
+      "Ciência de Dados": {
         "bg": "linear-gradient(135deg, #0d0221 0%, #240b36 100%)",
-        "header": "#e91e63", 
+        "header": "#ec4899", 
         "text_h": "#ffffff", 
-        "card": "rgba(233, 30, 99, 0.1)", 
-        "content_bg": "#ffffff", 
-        "content_text": "#ffffff", 
+        "card": "rgba(236, 72, 153, 0.1)", 
+        "content_bg": "#090514", 
+        "content_text": "#ec4899", 
         "lang": "markdown",
-        "pasta": "QRcode", 
-        "desc": "📱 Soluções Mobile e QR Codes"
+        "pasta": "ciencia_de_dados", 
+        "desc": "🔬 Experimentos Científicos de Dados e Análise Preditiva"
       },
-      "Analise": {
-        "bg": "linear-gradient(135deg, #000428 0%, #004e92 100%)",
-        "header": "#ffffff", 
-        "text_h": "#000428", 
-        "card": "rgba(255, 255, 255, 0.1)", 
-        "content_bg": "rgba(255, 255, 255, 0.05)", 
-        "content_text": "#ffffff", 
+      "Engenharia de Prompt": {
+        "bg": "linear-gradient(135deg, #022329 0%, #0d9488 100%)",
+        "header": "#2dd4bf", 
+        "text_h": "#010e1a", 
+        "card": "rgba(45, 212, 191, 0.1)", 
+        "content_bg": "#041416", 
+        "content_text": "#2dd4bf", 
         "lang": "markdown",
-        "pasta": "AP", 
-        "desc": "📊 Transformando dados em decisões"
+        "pasta": "engenharia_de_prompt", 
+        "desc": "🧠 Engenharia Avançada de Prompts e Orquestração de IA"
       }
     };
     res.json(TEMAS);

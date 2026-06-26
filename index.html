@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hubert Portfolio v2.0 Premium</title>
+    <title>hubert Portfolio v2.0 Premium</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <!-- Tailwind Play CDN -->
@@ -26,44 +26,105 @@
     <style>
       :root {
         --theme-color: #38bdf8;
-        --theme-color-glow: rgba(56, 189, 248, 0.2);
+        --theme-color-glow: rgba(56, 189, 248, 0.15);
         --theme-text-h: #000000;
-        --theme-card: rgba(255, 255, 255, 0.05);
+        --theme-card: rgba(255, 255, 255, 0.03);
       }
       body {
-        background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 50%), radial-gradient(circle at bottom left, #010c17 0%, #021d33 100%);
+        background-color: #030712; /* Real pitch black deep slate for high contrast */
+        background-image: 
+          radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0, transparent 40%),
+          radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.08) 0, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.6) 0, #030712 100%);
+        background-attachment: fixed;
         min-height: 100vh;
         color: #f3f4f6;
         font-family: 'Inter', sans-serif;
       }
       ::selection {
-        background: var(--theme-color-glow);
-        color: #ffffff;
+        background: var(--theme-color);
+        color: #000000;
       }
+      
+      /* Smooth transitions */
+      .transition-premium {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* Animated glassmorphism glow backdrops */
+      .ambient-glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.22;
+        pointer-events: none;
+        z-index: 0;
+        mix-blend-mode: screen;
+        animation: rotateGlow 30s infinite alternate ease-in-out;
+      }
+      .ambient-glow-1 {
+        background: radial-gradient(circle, var(--theme-color) 0%, transparent 70%);
+        top: 15%;
+        left: -100px;
+      }
+      .ambient-glow-2 {
+        background: radial-gradient(circle, #ec4899 0%, transparent 70%);
+        bottom: 10%;
+        right: -100px;
+        animation-delay: -10s;
+      }
+
+      @keyframes rotateGlow {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(50px, 40px) scale(1.15); }
+        100% { transform: translate(-30px, -20px) scale(0.9); }
+      }
+
+      /* Card Glass Frosted premium styling */
+      .glass-card {
+        background: rgba(13, 18, 30, 0.45);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+      }
+      .glass-card:hover {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 18px var(--theme-color-glow);
+      }
+
+      /* Custom premium high fidelity scrollbars */
       .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(0,0,0,0.2);
-        border-radius: 4px;
+        background: rgba(0, 0, 0, 0.3);
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background: var(--theme-color);
+        box-shadow: 0 0 8px var(--theme-color);
       }
     </style>
   </head>
-  <body class="overflow-x-hidden select-text">
+  <body class="overflow-x-hidden select-text relative">
+    
+    <!-- Ambient glowing backdrops -->
+    <div class="ambient-glow ambient-glow-1"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
     
     <!-- Mobile/Tablet Sticky Top Bar -->
     <div class="lg:hidden sticky top-0 left-0 right-0 h-16 bg-[#010c17]/90 backdrop-blur-md border-b border-white/10 px-6 flex items-center justify-between z-40">
       <div class="flex items-center gap-2">
         <i data-lucide="laptop" class="w-5 h-5 text-blue-400"></i>
-        <span class="font-display font-bold text-sm text-white uppercase tracking-wider">Hubert Portfolio</span>
+        <span class="font-display font-bold text-sm text-white uppercase tracking-wider">hubert Portfolio</span>
       </div>
       <button onclick="toggleMobileSidebar()" class="p-1.5 bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/10 rounded-xl text-white flex items-center justify-center transition-all" aria-label="Abrir Menu">
         <i data-lucide="menu" id="mobile-menu-icon" class="w-5 h-5 text-white/80"></i>
@@ -81,7 +142,7 @@
         <div class="mb-6 pb-6 border-b border-white/10 flex items-center justify-between">
           <div>
             <h1 class="text-xs font-bold tracking-widest text-blue-400 uppercase font-display flex items-center gap-2">
-              <i data-lucide="laptop" class="w-4 h-4"></i> Hubert Portfolio
+              <i data-lucide="laptop" class="w-4 h-4"></i> hubert Portfolio
             </h1>
             <p class="text-[10px] text-white/40 mt-1 uppercase tracking-wider font-mono">
               v2.0 Premium Offline
@@ -94,9 +155,14 @@
 
         <!-- Navigation Themes Selectors -->
         <div class="space-y-4 mb-6">
-          <span class="block text-[10px] font-mono text-white/40 uppercase tracking-widest font-semibold mb-2">
-            Navegar Projetos
-          </span>
+          <div class="flex items-center justify-between mb-2">
+            <span class="block text-[10px] font-mono text-white/40 uppercase tracking-widest font-semibold">
+              Navegar Projetos
+            </span>
+            <button onclick="rescanFolders()" class="text-[9px] font-mono text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/5 hover:border-white/10 cursor-pointer active:scale-95" title="Recarregar projetos das pastas em tempo real">
+              <i data-lucide="refresh-cw" class="w-2.5 h-2.5"></i> Sincronizar
+            </button>
+          </div>
           <div class="space-y-2" id="themes-list-container">
             <!-- Rendered by JS -->
           </div>
@@ -158,13 +224,13 @@
 
         <!-- Footer Credentials -->
         <div class="pt-4 border-t border-white/10 flex flex-col gap-2 font-mono text-[10px] text-white/40">
-          <a href="mailto:hubertadulto@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
+          <a href="mailto:hubert@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
             <i data-lucide="mail" class="w-3 h-3 text-white/40"></i>
-            hubertadulto@gmail.com
+            hubert@gmail.com
           </a>
           <div class="flex items-center gap-1.5">
             <i data-lucide="laptop" class="w-3 h-3 text-white/40"></i>
-            <span>© 2026 Hubert Portfólio</span>
+            <span>© 2026 hubert Portfólio</span>
           </div>
           <div class="text-[9px] text-white/30 leading-normal bg-black/20 p-2 rounded border border-white/5 text-center">
             Instalador Auto-Suficiente Local HTML
@@ -266,7 +332,7 @@
           "content_bg": "#ffffff", 
           "content_text": "#f7df1e", 
           "lang": "javascript",
-          "pasta": "JS", 
+          "pasta": "javascript", 
           "desc": "✨ Interatividade e Front-end moderno com empoderamento técnico em Vanilla ES6"
         },
         "Python": {
@@ -277,7 +343,7 @@
           "content_bg": "#1e1e26", 
           "content_text": "#ffffff", 
           "lang": "python", 
-          "pasta": "PY", 
+          "pasta": "python", 
           "desc": "🐍 Automação comercial, mineração inteligente, Web scrapers estruturados e rotinas de backend"
         },
         "Games": {
@@ -288,42 +354,42 @@
           "content_bg": "#0a0a0a", 
           "content_text": "#00ffcc", 
           "lang": "python", 
-          "pasta": "GAMES", 
+          "pasta": "games", 
           "desc": "🎮 Jogabilidade retrô clássica e simuladores de RPG em modo texto de TI"
         },
-        "Mobile": {
+        "Ciência de Dados": {
           "bg": "linear-gradient(135deg, #0d0221 0%, #240b36 100%)",
-          "header": "#e91e63", 
+          "header": "#ec4899", 
           "text_h": "#ffffff", 
-          "card": "rgba(233, 30, 99, 0.1)", 
-          "content_bg": "#ffffff", 
-          "content_text": "#ffffff", 
+          "card": "rgba(236, 72, 153, 0.1)", 
+          "content_bg": "#090514", 
+          "content_text": "#ec4899", 
           "lang": "markdown",
-          "pasta": "QRcode", 
-          "desc": "📱 Soluções Mobile e Geração Avançada de QR Codes de Alta Tolerância"
+          "pasta": "ciencia_de_dados", 
+          "desc": "🔬 Experimentos Científicos de Dados, Processamento Estatístico e Visualizações de Alta Fidelidade"
         },
-        "Analise": {
-          "bg": "linear-gradient(135deg, #000428 0%, #004e92 100%)",
-          "header": "#ffffff", 
+        "Engenharia de Prompt": {
+          "bg": "linear-gradient(135deg, #022329 0%, #0d9488 100%)",
+          "header": "#2dd4bf", 
           "text_h": "#010e1a", 
-          "card": "rgba(255, 255, 255, 0.1)", 
-          "content_bg": "rgba(255, 255, 255, 0.05)", 
-          "content_text": "#ffffff", 
+          "card": "rgba(45, 212, 191, 0.1)", 
+          "content_bg": "#041416", 
+          "content_text": "#2dd4bf", 
           "lang": "markdown",
-          "pasta": "AP", 
-          "desc": "📊 KPI e Relatórios Estratégicos Inteligentes para auxílio de Tomada de Decisão"
+          "pasta": "engenharia_de_prompt", 
+          "desc": "🧠 Engenharia Avançada de Prompts, Metodologias de LLMs e Orquestração Cognitiva de IA"
         }
       };
 
-      const PROJETOS = [
+      const FALLBACK_PROJETOS = [
         {
           tema: "JavaScript",
           nome: "carrossel_interativo.js",
           ext: "js",
           tipo: "codigo",
-          caminho_relativo: "JS/carrossel_interativo.js",
+          caminho_relativo: "javascript/carrossel_interativo.js",
           conteudo: `// --- Carrossel de Imagens Responsivo de Alta Performance ---
-// Autor: Hubert
+// Autor: hubert
 // Descrição: Um carrossel interativo construído com JavaScript Baunilha (Vanilla),
 // otimizado para dispositivos móveis com suporte a gestos de arraste (swipe).
 
@@ -415,9 +481,9 @@ const carousel = new PremiumCarousel('meu-carrossel', { interval: 4000 });`
           nome: "efeito_particulas.js",
           ext: "js",
           tipo: "codigo",
-          caminho_relativo: "JS/efeito_particulas.js",
+          caminho_relativo: "javascript/efeito_particulas.js",
           conteudo: `// --- Gerador Dinâmico de Partículas ---
-// Autor: Hubert
+// Autor: hubert
 // Descrição: Canvas interativo que renderiza partículas que reagem ao mouse.
 
 const canvas = document.getElementById('particle-canvas');
@@ -497,9 +563,9 @@ animate();`
           nome: "analise_vendas.py",
           ext: "py",
           tipo: "codigo",
-          caminho_relativo: "PY/analise_vendas.py",
+          caminho_relativo: "python/analise_vendas.py",
           conteudo: `# --- Análise Automatizada de Vendas com Pandas ---
-# Autor: Hubert
+# Autor: hubert
 # Descrição: Processa faturamento comercial, KPI e calcula projeções.
 
 import pandas as pd
@@ -523,9 +589,9 @@ def calcular_kpis(df):
           nome: "web_scraper.py",
           ext: "py",
           tipo: "codigo",
-          caminho_relativo: "PY/web_scraper.py",
+          caminho_relativo: "python/web_scraper.py",
           conteudo: `# --- Coletor Inteligente de Cotações Financeiras ---
-# Autor: Hubert
+# Autor: hubert
 # Descrição: Web Scraper robusto usando requests e BeautifulSoup com fallback.
 
 import requests
@@ -550,9 +616,9 @@ def buscar_cotacoes():
           nome: "rpg_textual.py",
           ext: "py",
           tipo: "codigo",
-          caminho_relativo: "GAMES/rpg_textual.py",
+          caminho_relativo: "games/rpg_textual.py",
           conteudo: `# --- RPG Textual: A Jornada do Desenvolvedor ---
-# Autor: Hubert
+# Autor: hubert
 # Descrição: RPG em modo terminal simulando as escolhas de carreira de TI de um Júnior.
 
 def aventura():
@@ -567,9 +633,9 @@ def aventura():
           nome: "snake_game.py",
           ext: "py",
           tipo: "codigo",
-          caminho_relativo: "GAMES/snake_game.py",
+          caminho_relativo: "games/snake_game.py",
           conteudo: `# --- Snake Game Clássico com Pygame ---
-# Autor: Hubert
+# Autor: hubert
 # Descrição: Snake retro jogável em pygame com controles direcionais e contador.
 
 import pygame
@@ -582,22 +648,22 @@ pygame.display.set_caption("Retro Snake")
 # Game loop cobra...`
         },
         {
-          tema: "Mobile",
+          tema: "Ciência de Dados",
           nome: "mobile_app_links.txt",
           ext: "txt",
           tipo: "link",
-          caminho_relativo: "QRcode/mobile_app_links.txt",
+          caminho_relativo: "ciencia_de_dados/mobile_app_links.txt",
           conteudo: `http://example.com/project-hubert-mobile
 Acesse a demonstração interativa do aplicativo móvel de geração de cartões digitais e QR Codes inteligentes. Este app permite o compartilhamento instantâneo de contatos profissionais e portfólios via NFC ou QR Code dinâmico, totalmente otimizado para dispositivos Android e iOS com integração de links premium.`
         },
         {
-          tema: "Mobile",
+          tema: "Ciência de Dados",
           nome: "qr_generator.js",
           ext: "js",
           tipo: "codigo",
-          caminho_relativo: "QRcode/qr_generator.js",
+          caminho_relativo: "ciencia_de_dados/qr_generator.js",
           conteudo: `// --- Gerador de QR Code com Sobreposição de Logotipo ---
-// Autor: Hubert
+// Autor: hubert
 // Descrição: NodeJS script que renderiza códigos QR robustos contendo logos centralizados.
 
 const qrCode = require('qrcode');
@@ -611,13 +677,13 @@ async function gerarQR(url, logoPath, savePath) {
 }`
         },
         {
-          tema: "Analise",
+          tema: "Engenharia de Prompt",
           nome: "dashboard_financeiro.sql",
           ext: "sql",
           tipo: "codigo",
-          caminho_relativo: "AP/dashboard_financeiro.sql",
+          caminho_relativo: "engenharia_de_prompt/dashboard_financeiro.sql",
           conteudo: `-- --- Query de Análise Financeira & Churn Mensal ---
--- Autor: Hubert
+-- Autor: hubert
 -- Descrição: Extrai volume de faturamento trimestral, MRR e Churn Rate.
 
 WITH assinaturas_ativas AS (
@@ -630,12 +696,12 @@ FROM assinaturas_ativas
 GROUP BY 1 ORDER BY 1 DESC;`
         },
         {
-          tema: "Analise",
+          tema: "Engenharia de Prompt",
           nome: "relatorio_insights.txt",
           ext: "txt",
           tipo: "texto",
-          caminho_relativo: "AP/relatorio_insights.txt",
-          conteudo: `# META DE KPI - SEGUNDO TRIMESTRE - HUBERT ANALÍSTICA
+          caminho_relativo: "engenharia_de_prompt/relatorio_insights.txt",
+          conteudo: `# META DE KPI - SEGUNDO TRIMESTRE - hubert ANALÍSTICA
 
 --- INDICADORES DE CONVERSÃO EXECUTIVA ---
 
@@ -655,6 +721,77 @@ GROUP BY 1 ORDER BY 1 DESC;`
    - Expandir campanhas de retargeting para checkout abandonado.`
         }
       ];
+
+      // STATE ENGINE
+      let PROJETOS = [];
+      let fetchedThemes = {};
+
+      // RESCAN AND REFETCH ALL FOLDERS DYNAMICALLY
+      function rescanFolders() {
+        fetchedThemes = {};
+        selectTheme(selectedTemaKey);
+        Object.keys(TEMAS).forEach(tk => {
+          if (tk !== selectedTemaKey) {
+            fetchThemeProjects(tk);
+          }
+        });
+      }
+
+      // DYNAMIC AUTOMATIC FOLDER PULLING FUNCTION
+      async function fetchThemeProjects(themeKey) {
+        const folder = TEMAS[themeKey].pasta;
+        
+        // Show local folder-pulling loading overlay if it wasn't fetched yet and is active
+        if (!fetchedThemes[themeKey] && selectedTemaKey === themeKey) {
+          const listContainer = document.getElementById("projects-accordion-list");
+          if (listContainer) {
+            listContainer.innerHTML = `
+              <div class="text-center py-20 px-4 flex flex-col items-center justify-center space-y-4">
+                <div class="w-10 h-10 border-4 border-white/10 border-t-blue-500 rounded-full animate-spin"></div>
+                <p class="text-xs text-white/50 font-mono">Buscando atividades de /${folder} de forma automática...</p>
+              </div>
+            `;
+          }
+        }
+
+        try {
+          const res = await fetch(`/api/projects?folder=${folder}`);
+          if (!res.ok) throw new Error("HTTP failure");
+          const data = await res.json();
+          
+          if (Array.isArray(data)) {
+            // Remove previous projects for this theme in dynamic PROJETOS array
+            PROJETOS = PROJETOS.filter(p => p.tema !== themeKey);
+            
+            // Map the API results to the local format
+            const mapped = data.map(item => {
+              let tipo = item.tipo;
+              // Detect link in text
+              if (tipo === "texto" && item.conteudo.trim().startsWith("http")) {
+                tipo = "link";
+              }
+              return {
+                tema: themeKey,
+                nome: item.nome,
+                ext: item.ext,
+                tipo: tipo,
+                caminho_relativo: item.caminho_relativo,
+                conteudo: item.conteudo
+              };
+            });
+            
+            PROJETOS.push(...mapped);
+            fetchedThemes[themeKey] = true;
+          }
+        } catch (e) {
+          console.warn(`Erro ao buscar pasta /${folder} via backend API:`, e);
+        } finally {
+          if (selectedTemaKey === themeKey) {
+            renderProjects();
+            loadRecentOutputs();
+          }
+        }
+      }
 
       // GLOBAL SPA STATE
       let selectedTemaKey = "JavaScript";
@@ -735,8 +872,8 @@ GROUP BY 1 ORDER BY 1 DESC;`
           if(key === "JavaScript") iconHTML = `<i data-lucide="braces" class="w-4 h-4 shrink-0"></i>`;
           if(key === "Python") iconHTML = `<i data-lucide="code" class="w-4 h-4 shrink-0"></i>`;
           if(key === "Games") iconHTML = `<i data-lucide="gamepad-2" class="w-4 h-4 shrink-0"></i>`;
-          if(key === "Mobile") iconHTML = `<i data-lucide="smartphone" class="w-4 h-4 shrink-0"></i>`;
-          if(key === "Analise") iconHTML = `<i data-lucide="bar-chart-3" class="w-4 h-4 shrink-0"></i>`;
+          if(key === "Ciência de Dados") iconHTML = `<i data-lucide="database" class="w-4 h-4 shrink-0"></i>`;
+          if(key === "Engenharia de Prompt") iconHTML = `<i data-lucide="brain" class="w-4 h-4 shrink-0"></i>`;
 
           btn.innerHTML = `
             <div class="flex items-center gap-3">
@@ -780,8 +917,7 @@ GROUP BY 1 ORDER BY 1 DESC;`
         document.getElementById("stat-path").innerText = `/root/${config.pasta}`;
 
         loadThemesSidebar();
-        loadRecentOutputs();
-        renderProjects();
+        fetchThemeProjects(themeKey);
 
         // Auto close mobile drawer if open when switching topics
         if (mobileSidebarOpen) {
@@ -811,15 +947,20 @@ GROUP BY 1 ORDER BY 1 DESC;`
       });
 
       // SYNC SIMULATION TRIGGER
-      function syncSimulator() {
+      async function syncSimulator() {
         const icon = document.getElementById("sync-icon");
-        icon.classList.add("animate-spin");
-        showToast("Buscando repositórios locais...");
+        if (icon.classList.contains("animate-spin")) return;
         
-        setTimeout(() => {
-          icon.classList.remove("animate-spin");
-          showToast("Projetos atualizados e re-indexados com sucesso!");
-        }, 1200);
+        icon.classList.add("animate-spin");
+        const folder = TEMAS[selectedTemaKey].pasta;
+        showToast(`Buscando e sincronizando arquivos da pasta /${folder}...`);
+        
+        // Clear cached state for this folder to force a real re-fetch from disk
+        fetchedThemes[selectedTemaKey] = false;
+        await fetchThemeProjects(selectedTemaKey);
+        
+        icon.classList.remove("animate-spin");
+        showToast(`Pasta /${folder} sincronizada com sucesso!`);
       }
 
       // SHOW TOAST DELIGHT
@@ -831,6 +972,26 @@ GROUP BY 1 ORDER BY 1 DESC;`
         setTimeout(() => {
           toast.className = toast.className.replace("opacity-100 translate-y-0 pointer-events-auto", "opacity-0 translate-y-10 pointer-events-none");
         }, 3000);
+      }
+
+      // CONVERTER TEXTO EM LINKS HIPERTEXTO DENTRO DOS ARQUIVOS
+      function convertTextToHyperlinks(text) {
+        if (!text) return "";
+        // Regex para encontrar links HTTPS/HTTP e convertê-los em tags <a> com estilo e id
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        return text.replace(urlRegex, (url) => {
+          let cleanUrl = url;
+          let suffix = "";
+          if (/[.,;:?]$/.test(url)) {
+            cleanUrl = url.substring(0, url.length - 1);
+            suffix = url.charAt(url.length - 1);
+          }
+          const escapedUrl = cleanUrl.replace(/"/g, '&quot;');
+          return `<a href="${escapedUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-400 underline hover:text-blue-300 font-semibold transition-colors duration-150 inline-flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded border border-white/5 hover:bg-white/10" id="link-${Math.floor(Math.random() * 100000)}">
+            ${escapedUrl}
+            <i data-lucide="external-link" class="w-3.5 h-3.5 inline-block shrink-0"></i>
+          </a>${suffix}`;
+        });
       }
 
       // CARD COPY CLIPBOARD HANDLER
@@ -985,8 +1146,8 @@ GROUP BY 1 ORDER BY 1 DESC;`
             <div class="mb-4 p-4 bg-pink-950/10 border border-pink-950/20 rounded-xl space-y-4">
               <div class="flex flex-wrap items-center justify-between gap-3 border-b border-pink-950/20 pb-3">
                 <span class="flex items-center gap-1.5 text-xs font-semibold text-pink-200 font-mono">
-                  <i data-lucide="smartphone" class="w-4 h-4 text-pink-500"></i>
-                  MOBILE EMULATOR: qr_generator.js
+                  <i data-lucide="database" class="w-4 h-4 text-pink-500"></i>
+                  DATA GENERATOR: qr_generator.js
                 </span>
                 <span class="text-[9px] bg-pink-500/10 px-2 py-0.5 text-pink-300 border border-pink-500/20 rounded font-mono font-bold">
                   Código QR Customizado
@@ -1130,30 +1291,27 @@ GROUP BY 1 ORDER BY 1 DESC;`
         filtered.forEach((p, idx) => {
           const isOpen = activeOpenCard === p.nome;
           const cardId = `card-${p.nome.replace(/\./g,'-')}`;
+          const titleFormatted = p.nome.replace(/_/g, " ").replace(/\.[^/.]+$/, "");
 
           const div = document.createElement("div");
           div.id = cardId;
           div.className = "mb-4 bg-neutral-900/60 border border-neutral-800 rounded-2xl overflow-hidden transition-all duration-200 shadow-inner";
-          if (isOpen) div.style.boxShadow = "0 10px 35px -10px rgba(0,0,0,0.6)";
-
-          const titleFormatted = p.nome.replace(/_/g, " ").replace(/\.[^/.]+$/, "");
-
           div.innerHTML = `
             <!-- Accordion Header -->
             <div 
-              onclick="toggleCard('${p.nome}')" 
+              onclick="toggleCard(\`${p.nome}\`)" 
               style="${getHeaderStyle(isOpen)}"
               class="flex items-center justify-between p-4 cursor-pointer hover:opacity-95 transition-all select-none font-sans"
             >
-              <div class="flex items-center gap-3">
+              <div class="flex items-center gap-3 w-full overflow-hidden">
                 <span class="text-[10px] shrink-0 font-mono p-1 px-1.5 bg-neutral-900/40 rounded border border-neutral-800/10 uppercase font-bold text-white/70">
                   ${p.ext}
                 </span>
-                <h3 class="text-xs sm:text-sm font-display font-bold uppercase tracking-wider">
-                  ✨ ${titleFormatted}
+                <h3 class="text-xs sm:text-sm font-display font-medium tracking-wider truncate text-white">
+                  ${p.nome}
                 </h3>
               </div>
-              <div class="flex items-center gap-2.5">
+              <div class="flex items-center gap-2.5 shrink-0 ml-2">
                 ${p.tipo === "codigo" ? `
                   <button onclick="copyText(event, \`${p.conteudo.replace(/`/g, '\\`').replace(/\$/g, '\\$')}\`)" class="p-1 px-2.5 rounded bg-neutral-950/20 hover:bg-neutral-950/45 text-[10px] uppercase font-mono tracking-widest transition flex items-center gap-1.5 text-white/90">
                     <i data-lucide="copy" class="w-3 h-3"></i> Copiar
@@ -1176,13 +1334,13 @@ GROUP BY 1 ORDER BY 1 DESC;`
                     <p class="text-xs text-neutral-400">
                       O projeto <strong class="text-neutral-100">${titleFormatted}</strong> está ativo externamente em produção:
                     </p>
-                    <a href="${p.conteudo.trim().split('\\n')[0]}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-xs px-6 py-3 rounded-xl transition w-full text-center tracking-wide shadow-lg active:scale-95">
+                    <a href="${p.conteudo.trim().split(/\r?\n|\\\\n|\\n/)[0]}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-xs px-6 py-3 rounded-xl transition w-full text-center tracking-wide shadow-lg active:scale-95">
                       🚀 ACESSAR PROJETO EXTERNO
                       <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                     </a>
                   </div>
                 ` : ""}
-
+ 
                 <!-- If Code container markup viewer -->
                 ${p.tipo === 'codigo' ? `
                   <div class="space-y-2">
@@ -1205,11 +1363,11 @@ GROUP BY 1 ORDER BY 1 DESC;`
                     </div>
                   </div>
                 ` : ""}
-
+ 
                 <!-- If simple TEXT markup fallback -->
                 ${p.tipo === 'texto' ? `
                   <div class="border-l-2 border-neutral-500 pl-4 py-1.5 italic text-xs leading-relaxed text-neutral-400 bg-neutral-950/20 rounded-r-lg pr-3 whitespace-pre-line select-text font-mono">
-                    ${p.conteudo}
+                    ${convertTextToHyperlinks(p.conteudo)}
                   </div>
                 ` : ""}
 
@@ -1791,7 +1949,15 @@ GROUP BY 1 ORDER BY 1 DESC;`
       });
 
       window.onload = () => {
+        // Select and load initial theme instantly
         selectTheme("JavaScript");
+
+        // Warm up and cache-pull all other categories from backend folders in background
+        Object.keys(TEMAS).forEach(tk => {
+          if (tk !== "JavaScript") {
+            fetchThemeProjects(tk);
+          }
+        });
       };
     </script>
   </body>
