@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>josé Portfolio v2.0 Premium</title>
+    <title>Hubert Portfolio v2.0 Premium</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <!-- Tailwind Play CDN -->
@@ -26,105 +26,44 @@
     <style>
       :root {
         --theme-color: #38bdf8;
-        --theme-color-glow: rgba(56, 189, 248, 0.15);
+        --theme-color-glow: rgba(56, 189, 248, 0.2);
         --theme-text-h: #000000;
-        --theme-card: rgba(255, 255, 255, 0.03);
+        --theme-card: rgba(255, 255, 255, 0.05);
       }
       body {
-        background-color: #030712; /* Real pitch black deep slate for high contrast */
-        background-image: 
-          radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0, transparent 40%),
-          radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.08) 0, transparent 40%),
-          radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.6) 0, #030712 100%);
-        background-attachment: fixed;
+        background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 50%), radial-gradient(circle at bottom left, #010c17 0%, #021d33 100%);
         min-height: 100vh;
         color: #f3f4f6;
         font-family: 'Inter', sans-serif;
       }
       ::selection {
-        background: var(--theme-color);
-        color: #000000;
+        background: var(--theme-color-glow);
+        color: #ffffff;
       }
-      
-      /* Smooth transitions */
-      .transition-premium {
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      /* Animated glassmorphism glow backdrops */
-      .ambient-glow {
-        position: fixed;
-        width: 400px;
-        height: 400px;
-        border-radius: 50%;
-        filter: blur(120px);
-        opacity: 0.22;
-        pointer-events: none;
-        z-index: 0;
-        mix-blend-mode: screen;
-        animation: rotateGlow 30s infinite alternate ease-in-out;
-      }
-      .ambient-glow-1 {
-        background: radial-gradient(circle, var(--theme-color) 0%, transparent 70%);
-        top: 15%;
-        left: -100px;
-      }
-      .ambient-glow-2 {
-        background: radial-gradient(circle, #ec4899 0%, transparent 70%);
-        bottom: 10%;
-        right: -100px;
-        animation-delay: -10s;
-      }
-
-      @keyframes rotateGlow {
-        0% { transform: translate(0, 0) scale(1); }
-        50% { transform: translate(50px, 40px) scale(1.15); }
-        100% { transform: translate(-30px, -20px) scale(0.9); }
-      }
-
-      /* Card Glass Frosted premium styling */
-      .glass-card {
-        background: rgba(13, 18, 30, 0.45);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 1px solid rgba(255, 255, 255, 0.09);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-      }
-      .glass-card:hover {
-        border-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 18px var(--theme-color-glow);
-      }
-
-      /* Custom premium high fidelity scrollbars */
       .custom-scrollbar::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
+        width: 6px;
+        height: 6px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0,0,0,0.2);
+        border-radius: 4px;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
         background: var(--theme-color);
-        box-shadow: 0 0 8px var(--theme-color);
       }
     </style>
   </head>
-  <body class="overflow-x-hidden select-text relative">
-    
-    <!-- Ambient glowing backdrops -->
-    <div class="ambient-glow ambient-glow-1"></div>
-    <div class="ambient-glow ambient-glow-2"></div>
+  <body class="overflow-x-hidden select-text">
     
     <!-- Mobile/Tablet Sticky Top Bar -->
     <div class="lg:hidden sticky top-0 left-0 right-0 h-16 bg-[#010c17]/90 backdrop-blur-md border-b border-white/10 px-6 flex items-center justify-between z-40">
       <div class="flex items-center gap-2">
         <i data-lucide="laptop" class="w-5 h-5 text-blue-400"></i>
-        <span class="font-display font-bold text-sm text-white uppercase tracking-wider">José Portfolio</span>
+        <span class="font-display font-bold text-sm text-white uppercase tracking-wider">Hubert Portfolio</span>
       </div>
       <button onclick="toggleMobileSidebar()" class="p-1.5 bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/10 rounded-xl text-white flex items-center justify-center transition-all" aria-label="Abrir Menu">
         <i data-lucide="menu" id="mobile-menu-icon" class="w-5 h-5 text-white/80"></i>
@@ -142,7 +81,7 @@
         <div class="mb-6 pb-6 border-b border-white/10 flex items-center justify-between">
           <div>
             <h1 class="text-xs font-bold tracking-widest text-blue-400 uppercase font-display flex items-center gap-2">
-              <i data-lucide="laptop" class="w-4 h-4"></i> José Portfolio
+              <i data-lucide="laptop" class="w-4 h-4"></i> Hubert Portfolio
             </h1>
             <p class="text-[10px] text-white/40 mt-1 uppercase tracking-wider font-mono">
               v2.0 Premium Offline
@@ -155,14 +94,9 @@
 
         <!-- Navigation Themes Selectors -->
         <div class="space-y-4 mb-6">
-          <div class="flex items-center justify-between mb-2">
-            <span class="block text-[10px] font-mono text-white/40 uppercase tracking-widest font-semibold">
-              Navegar Projetos
-            </span>
-            <button onclick="rescanFolders()" class="text-[9px] font-mono text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2 py-0.5 rounded border border-white/5 hover:border-white/10 cursor-pointer active:scale-95" title="Recarregar projetos das pastas em tempo real">
-              <i data-lucide="refresh-cw" class="w-2.5 h-2.5"></i> Sincronizar
-            </button>
-          </div>
+          <span class="block text-[10px] font-mono text-white/40 uppercase tracking-widest font-semibold mb-2">
+            Navegar Projetos
+          </span>
           <div class="space-y-2" id="themes-list-container">
             <!-- Rendered by JS -->
           </div>
@@ -224,13 +158,13 @@
 
         <!-- Footer Credentials -->
         <div class="pt-4 border-t border-white/10 flex flex-col gap-2 font-mono text-[10px] text-white/40">
-          <a href="mailto:josé@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
+          <a href="mailto:hubertadulto@gmail.com" class="flex items-center gap-1.5 hover:text-white transition-colors">
             <i data-lucide="mail" class="w-3 h-3 text-white/40"></i>
-            josé@gmail.com
+            hubertadulto@gmail.com
           </a>
           <div class="flex items-center gap-1.5">
             <i data-lucide="laptop" class="w-3 h-3 text-white/40"></i>
-            <span>© 2026 josé Portfólio</span>
+            <span>© 2026 Hubert Portfólio</span>
           </div>
           <div class="text-[9px] text-white/30 leading-normal bg-black/20 p-2 rounded border border-white/5 text-center">
             Instalador Auto-Suficiente Local HTML
@@ -357,27 +291,27 @@
           "pasta": "GAMES", 
           "desc": "🎮 Jogabilidade retrô clássica e simuladores de RPG em modo texto de TI"
         },
-        "Ciência de Dados": {
+        "Mobile": {
           "bg": "linear-gradient(135deg, #0d0221 0%, #240b36 100%)",
-          "header": "#ec4899", 
+          "header": "#e91e63", 
           "text_h": "#ffffff", 
-          "card": "rgba(236, 72, 153, 0.1)", 
-          "content_bg": "#090514", 
-          "content_text": "#ec4899", 
+          "card": "rgba(233, 30, 99, 0.1)", 
+          "content_bg": "#ffffff", 
+          "content_text": "#ffffff", 
           "lang": "markdown",
           "pasta": "QRcode", 
-          "desc": "🔬 Experimentos Científicos de Dados, Processamento Estatístico e Visualizações de Alta Fidelidade"
+          "desc": "📱 Soluções Mobile e Geração Avançada de QR Codes de Alta Tolerância"
         },
-        "Engenharia de Prompt": {
-          "bg": "linear-gradient(135deg, #022329 0%, #0d9488 100%)",
-          "header": "#2dd4bf", 
+        "Analise": {
+          "bg": "linear-gradient(135deg, #000428 0%, #004e92 100%)",
+          "header": "#ffffff", 
           "text_h": "#010e1a", 
-          "card": "rgba(45, 212, 191, 0.1)", 
-          "content_bg": "#041416", 
-          "content_text": "#2dd4bf", 
+          "card": "rgba(255, 255, 255, 0.1)", 
+          "content_bg": "rgba(255, 255, 255, 0.05)", 
+          "content_text": "#ffffff", 
           "lang": "markdown",
           "pasta": "AP", 
-          "desc": "🧠 Engenharia Avançada de Prompts, Metodologias de LLMs e Orquestração Cognitiva de IA"
+          "desc": "📊 KPI e Relatórios Estratégicos Inteligentes para auxílio de Tomada de Decisão"
         }
       };
 
@@ -389,7 +323,7 @@
           tipo: "codigo",
           caminho_relativo: "JS/carrossel_interativo.js",
           conteudo: `// --- Carrossel de Imagens Responsivo de Alta Performance ---
-// Autor: josé
+// Autor: Hubert
 // Descrição: Um carrossel interativo construído com JavaScript Baunilha (Vanilla),
 // otimizado para dispositivos móveis com suporte a gestos de arraste (swipe).
 
@@ -483,7 +417,7 @@ const carousel = new PremiumCarousel('meu-carrossel', { interval: 4000 });`
           tipo: "codigo",
           caminho_relativo: "JS/efeito_particulas.js",
           conteudo: `// --- Gerador Dinâmico de Partículas ---
-// Autor: josé
+// Autor: Hubert
 // Descrição: Canvas interativo que renderiza partículas que reagem ao mouse.
 
 const canvas = document.getElementById('particle-canvas');
@@ -565,7 +499,7 @@ animate();`
           tipo: "codigo",
           caminho_relativo: "PY/analise_vendas.py",
           conteudo: `# --- Análise Automatizada de Vendas com Pandas ---
-# Autor: josé
+# Autor: Hubert
 # Descrição: Processa faturamento comercial, KPI e calcula projeções.
 
 import pandas as pd
@@ -591,7 +525,7 @@ def calcular_kpis(df):
           tipo: "codigo",
           caminho_relativo: "PY/web_scraper.py",
           conteudo: `# --- Coletor Inteligente de Cotações Financeiras ---
-# Autor: josé
+# Autor: Hubert
 # Descrição: Web Scraper robusto usando requests e BeautifulSoup com fallback.
 
 import requests
@@ -618,7 +552,7 @@ def buscar_cotacoes():
           tipo: "codigo",
           caminho_relativo: "GAMES/rpg_textual.py",
           conteudo: `# --- RPG Textual: A Jornada do Desenvolvedor ---
-# Autor: josé
+# Autor: Hubert
 # Descrição: RPG em modo terminal simulando as escolhas de carreira de TI de um Júnior.
 
 def aventura():
@@ -635,7 +569,7 @@ def aventura():
           tipo: "codigo",
           caminho_relativo: "GAMES/snake_game.py",
           conteudo: `# --- Snake Game Clássico com Pygame ---
-# Autor: josé
+# Autor: Hubert
 # Descrição: Snake retro jogável em pygame com controles direcionais e contador.
 
 import pygame
@@ -648,22 +582,22 @@ pygame.display.set_caption("Retro Snake")
 # Game loop cobra...`
         },
         {
-          tema: "Ciência de Dados",
+          tema: "Mobile",
           nome: "mobile_app_links.txt",
           ext: "txt",
           tipo: "link",
           caminho_relativo: "QRcode/mobile_app_links.txt",
-          conteudo: `http://example.com/project-josé-mobile
+          conteudo: `http://example.com/project-hubert-mobile
 Acesse a demonstração interativa do aplicativo móvel de geração de cartões digitais e QR Codes inteligentes. Este app permite o compartilhamento instantâneo de contatos profissionais e portfólios via NFC ou QR Code dinâmico, totalmente otimizado para dispositivos Android e iOS com integração de links premium.`
         },
         {
-          tema: "Ciência de Dados",
+          tema: "Mobile",
           nome: "qr_generator.js",
           ext: "js",
           tipo: "codigo",
           caminho_relativo: "QRcode/qr_generator.js",
           conteudo: `// --- Gerador de QR Code com Sobreposição de Logotipo ---
-// Autor: josé
+// Autor: Hubert
 // Descrição: NodeJS script que renderiza códigos QR robustos contendo logos centralizados.
 
 const qrCode = require('qrcode');
@@ -677,13 +611,13 @@ async function gerarQR(url, logoPath, savePath) {
 }`
         },
         {
-          tema: "Engenharia de Prompt",
+          tema: "Analise",
           nome: "dashboard_financeiro.sql",
           ext: "sql",
           tipo: "codigo",
           caminho_relativo: "AP/dashboard_financeiro.sql",
           conteudo: `-- --- Query de Análise Financeira & Churn Mensal ---
--- Autor: josé
+-- Autor: Hubert
 -- Descrição: Extrai volume de faturamento trimestral, MRR e Churn Rate.
 
 WITH assinaturas_ativas AS (
@@ -696,12 +630,12 @@ FROM assinaturas_ativas
 GROUP BY 1 ORDER BY 1 DESC;`
         },
         {
-          tema: "Engenharia de Prompt",
+          tema: "Analise",
           nome: "relatorio_insights.txt",
           ext: "txt",
           tipo: "texto",
           caminho_relativo: "AP/relatorio_insights.txt",
-          conteudo: `# META DE KPI - SEGUNDO TRIMESTRE - josé ANALÍSTICA
+          conteudo: `# META DE KPI - SEGUNDO TRIMESTRE - HUBERT ANALÍSTICA
 
 --- INDICADORES DE CONVERSÃO EXECUTIVA ---
 
@@ -723,26 +657,15 @@ GROUP BY 1 ORDER BY 1 DESC;`
       ];
 
       // STATE ENGINE
-      let PROJETOS = [];
+      let PROJETOS = [...FALLBACK_PROJETOS];
       let fetchedThemes = {};
-
-      // RESCAN AND REFETCH ALL FOLDERS DYNAMICALLY
-      function rescanFolders() {
-        fetchedThemes = {};
-        selectTheme(selectedTemaKey);
-        Object.keys(TEMAS).forEach(tk => {
-          if (tk !== selectedTemaKey) {
-            fetchThemeProjects(tk);
-          }
-        });
-      }
 
       // DYNAMIC AUTOMATIC FOLDER PULLING FUNCTION
       async function fetchThemeProjects(themeKey) {
         const folder = TEMAS[themeKey].pasta;
         
-        // Show local folder-pulling loading overlay if it wasn't fetched yet and is active
-        if (!fetchedThemes[themeKey] && selectedTemaKey === themeKey) {
+        // Show local folder-pulling loading overlay if it wasn't fetched yet
+        if (!fetchedThemes[themeKey]) {
           const listContainer = document.getElementById("projects-accordion-list");
           if (listContainer) {
             listContainer.innerHTML = `
@@ -784,7 +707,8 @@ GROUP BY 1 ORDER BY 1 DESC;`
             fetchedThemes[themeKey] = true;
           }
         } catch (e) {
-          console.warn(`Erro ao buscar pasta /${folder} via backend API:`, e);
+          console.warn(`Erro ao buscar pasta /${folder} via backend API, usando fallbacks offline:`, e);
+          // If we fail, PROJETOS still contains the FALLBACK_PROJETOS
         } finally {
           if (selectedTemaKey === themeKey) {
             renderProjects();
@@ -872,8 +796,8 @@ GROUP BY 1 ORDER BY 1 DESC;`
           if(key === "JavaScript") iconHTML = `<i data-lucide="braces" class="w-4 h-4 shrink-0"></i>`;
           if(key === "Python") iconHTML = `<i data-lucide="code" class="w-4 h-4 shrink-0"></i>`;
           if(key === "Games") iconHTML = `<i data-lucide="gamepad-2" class="w-4 h-4 shrink-0"></i>`;
-          if(key === "Ciência de Dados") iconHTML = `<i data-lucide="database" class="w-4 h-4 shrink-0"></i>`;
-          if(key === "Engenharia de Prompt") iconHTML = `<i data-lucide="brain" class="w-4 h-4 shrink-0"></i>`;
+          if(key === "Mobile") iconHTML = `<i data-lucide="smartphone" class="w-4 h-4 shrink-0"></i>`;
+          if(key === "Analise") iconHTML = `<i data-lucide="bar-chart-3" class="w-4 h-4 shrink-0"></i>`;
 
           btn.innerHTML = `
             <div class="flex items-center gap-3">
@@ -1146,8 +1070,8 @@ GROUP BY 1 ORDER BY 1 DESC;`
             <div class="mb-4 p-4 bg-pink-950/10 border border-pink-950/20 rounded-xl space-y-4">
               <div class="flex flex-wrap items-center justify-between gap-3 border-b border-pink-950/20 pb-3">
                 <span class="flex items-center gap-1.5 text-xs font-semibold text-pink-200 font-mono">
-                  <i data-lucide="database" class="w-4 h-4 text-pink-500"></i>
-                  DATA GENERATOR: qr_generator.js
+                  <i data-lucide="smartphone" class="w-4 h-4 text-pink-500"></i>
+                  MOBILE EMULATOR: qr_generator.js
                 </span>
                 <span class="text-[9px] bg-pink-500/10 px-2 py-0.5 text-pink-300 border border-pink-500/20 rounded font-mono font-bold">
                   Código QR Customizado
@@ -1157,7 +1081,7 @@ GROUP BY 1 ORDER BY 1 DESC;`
                 <div class="space-y-3">
                   <div>
                     <label class="block text-[10px] font-mono text-pink-300 font-semibold mb-1 uppercase">Link de Destino:</label>
-                    <input id="qr-url-input" type="text" value="https://github.com/joséadulto" oninput="drawQRPlayground()" class="w-full text-[11px] bg-neutral-900 border border-pink-950/40 rounded-lg p-2 text-white font-mono focus:outline-none focus:border-pink-500" />
+                    <input id="qr-url-input" type="text" value="https://github.com/hubertadulto" oninput="drawQRPlayground()" class="w-full text-[11px] bg-neutral-900 border border-pink-950/40 rounded-lg p-2 text-white font-mono focus:outline-none focus:border-pink-500" />
                   </div>
                   <div class="grid grid-cols-2 gap-2">
                     <div>
@@ -1949,15 +1873,7 @@ GROUP BY 1 ORDER BY 1 DESC;`
       });
 
       window.onload = () => {
-        // Select and load initial theme instantly
         selectTheme("JavaScript");
-
-        // Warm up and cache-pull all other categories from backend folders in background
-        Object.keys(TEMAS).forEach(tk => {
-          if (tk !== "JavaScript") {
-            fetchThemeProjects(tk);
-          }
-        });
       };
     </script>
   </body>

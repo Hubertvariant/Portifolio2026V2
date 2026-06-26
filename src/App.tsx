@@ -73,7 +73,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [typeFilter, setTypeFilter] = useState<string>("all"); // "all" | "codigo" | "texto" | "link"
 
-  const selectedTema = temas[selectedTemaKey] || DEFAULT_TEMAS["JavaScript"];
+  const selectedTema = temas[selectedTemaKey] || Object.values(temas)[0] || DEFAULT_TEMAS["JavaScript"];
 
   // Fetch customizable project list from live express API
   const fetchProjects = async (pasta: string) => {
@@ -106,6 +106,10 @@ export default function App() {
         if (response.ok) {
           const data = await response.json();
           setTemas(data);
+          const keys = Object.keys(data);
+          if (keys.length > 0) {
+            setSelectedTemaKey((prev) => (data[prev] ? prev : keys[0]));
+          }
         }
       } catch (err) {
         console.warn("Usando pre-seed local resiliente de temas.");
